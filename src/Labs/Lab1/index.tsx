@@ -43,16 +43,16 @@ export default function Lab1() {
       <div id="wd-lists">
         <h4>List Tags</h4>
         <h5>Ordered List Tag</h5>
-        How to make pancakes:
-        <ol id="wd-pancakes">
-          <li>Mix dry ingredients.</li>
-          <li>Add wet ingredients.</li>
-          <li>Stir to combine.</li>
-          <li>Heat a skillet or griddle.</li>
-          <li>Pour batter onto the skillet.</li>
-          <li>Cook until bubbly on top.</li>
-          <li>Flip and cook the other side.</li>
-          <li>Serve and enjoy!</li>
+        How to make Brownies:
+        <ol id="wd-brownies">
+          <li>Prepare the ingredients.</li>
+          <li>Preheat the oven.</li>
+          <li>mix the ingredients</li>
+          <li>add eggs to make it fluffy.</li>
+          <li>Grease a pan and pour the batter.</li>
+          <li>Bake the brownies.</li>
+          <li>Cool the brownies.</li>
+          <li>Serve with ice cream and enjoy!</li>
         </ol>
 
         How to make salad:
@@ -68,18 +68,18 @@ export default function Lab1() {
         <h5>Unordered List Tag</h5>
         My favorite books (in no particular order)
         <ul id="wd-my-books">
-          <li>Dune</li>
-          <li>Lord of the Rings</li>
-          <li>Ender's Game</li>
-          <li>Red Mars</li>
-          <li>The Forever War</li>
+          <li>The Catcher in the Rye</li>
+          <li>The Great Gatsby</li>
+          <li>To Kill a Mockingbird</li>
+          <li>Harry potter and the Sorcerer's Stone</li>
+          <li>The fountain head</li>
         </ul>
 
         Your favorite books (in no particular order)
         <ul id="wd-your-books">
-          <li>To Kill a Mockingbird</li>
-          <li>1984</li>
-          <li>Pride and Prejudice</li>
+          <li>The Martians</li>
+          <li>1979</li>
+          <li>Game of Thrones : Song of Ice and Fire</li>
         </ul>
       </div>
 
@@ -99,31 +99,31 @@ export default function Lab1() {
           <tbody>
             <tr>
               <td>Q1</td>
-              <td>HTML</td>
+              <td>java</td>
               <td>2/3/21</td>
               <td>85</td>
             </tr>
             <tr>
               <td>Q2</td>
-              <td>CSS</td>
+              <td>spring</td>
               <td>2/10/21</td>
-              <td>90</td>
-            </tr>
-            <tr>
-              <td>Q3</td>
-              <td>JavaScript</td>
-              <td>2/17/21</td>
               <td>95</td>
             </tr>
             <tr>
+              <td>Q3</td>
+              <td>mvc</td>
+              <td>2/17/21</td>
+              <td>93</td>
+            </tr>
+            <tr>
               <td>Q4</td>
-              <td>Node.js</td>
+              <td>python</td>
               <td>2/27/21</td>
-              <td>94</td>
+              <td>96</td>
             </tr>
             <tr>
               <td>Q5</td>
-              <td>Express</td>
+              <td>JSP</td>
               <td>3/15/21</td>
               <td>89</td>
             </tr>
@@ -131,7 +131,7 @@ export default function Lab1() {
               <td>Q6</td>
               <td>React</td>
               <td>3/28/21</td>
-              <td>96</td>
+              <td>97</td>
             </tr>
             <tr>
               <td>Q7</td>
@@ -143,13 +143,13 @@ export default function Lab1() {
               <td>Q8</td>
               <td>Dynamic content</td>
               <td>4/24/21</td>
-              <td>91</td>
+              <td>93</td>
             </tr>
             <tr>
               <td>Q9</td>
               <td>Authentication</td>
               <td>5/10/21</td>
-              <td>95</td>
+              <td>94</td>
             </tr>
             <tr>
               <td>Q10</td>
@@ -173,15 +173,15 @@ export default function Lab1() {
         <h4>Image tag</h4>
         Loading an image from the internet:
         <br />
-        <img id="wd-starship"
+        <img id="wd-tom"
           width="400px"
-          src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
-          alt="A starship"
+          src="https://i.pinimg.com/originals/84/4a/5e/844a5e55833408d83c42ab3fdcbeb17e.jpg"
+          alt="Tom "
         />
         <br />
         Loading a local image:
         <br />
-        <img id="wd-teslabot" src="images/teslabot.jpg" height="200px" alt="Tesla Bot" />
+        <img id="wd-peter" src="src\Labs\Lab1\petergriffin.jpeg" height="200px" alt="Peter Griffin from quohog" />
       </div>
 
       {/* 2.11 Form Tags */}
@@ -192,28 +192,28 @@ export default function Lab1() {
         <form id="wd-text-fields">
           <h5>Text Fields</h5>
           <label htmlFor="wd-text-fields-username">Username:</label>
-          <input id="wd-text-fields-username" placeholder="jdoe" /> <br />
+          <input id="wd-text-fields-username" placeholder="priyank" /> <br />
           <label htmlFor="wd-text-fields-password">Password:</label>
-          <input type="password" id="wd-text-fields-password" value="123@#$asd" />
+          <input type="password" id="wd-text-fields-password" value="qwerty@#$asd" />
           <br />
           <label htmlFor="wd-text-fields-first-name">First name:</label>
-          <input type="text" id="wd-text-fields-first-name" title="John" /> <br />
+          <input type="text" id="wd-text-fields-first-name" title="priyank" /> <br />
           <label htmlFor="wd-text-fields-last-name">Last name:</label>
-          <input type="text" id="wd-text-fields-last-name" placeholder="Doe"
-            value="Wonderland" title="The last name" />
+          <input type="text" id="wd-text-fields-last-name" placeholder="patel"
+            value="patel" title="The last name" />
 
           {/* 2.11.2 Textareas */}
 
           <h5>Text boxes</h5>
           <label>Biography:</label><br />
-          <textarea id="wd-textarea" cols={30} rows={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <textarea id="wd-textarea" cols={30} rows={10}>Eighteen years ago, on January 9, 2007, Steve Jobs unveiled the original iPhone at Macworld Expo in San Francisco. This groundbreaking device combined a mobile phone, an iPod, and an internet communicator into a single product, revolutionizing the tech industry and redefining mobile communication.
           </textarea>
 
           {/* 2.11.3 Buttons */}
 
           <h5 id="wd-buttons">Buttons</h5>
           <button id="wd-all-good" onClick={() => alert("Life is Good!")} type="button">
-            Hello World!
+            Hello click me!
           </button>
 
           {/* 2.11.4 File upload button */}
@@ -225,19 +225,19 @@ export default function Lab1() {
 
           <h5 id="wd-radio-buttons">Radio buttons</h5>
 
-          <label>Favorite movie genre:</label><br />
+          <label>Favorite movie :</label><br />
 
           <input type="radio" name="radio-genre" id="wd-radio-comedy" />
-          <label htmlFor="wd-radio-comedy">Comedy</label><br />
+          <label htmlFor="wd-radio-comedy">incendies</label><br />
 
           <input type="radio" name="radio-genre" id="wd-radio-drama" />
-          <label htmlFor="wd-radio-drama">Drama</label><br />
+          <label htmlFor="wd-radio-drama">whiplash</label><br />
 
           <input type="radio" name="radio-genre" id="wd-radio-scifi" />
-          <label htmlFor="wd-radio-scifi">Science Fiction</label><br />
+          <label htmlFor="wd-radio-scifi">your name</label><br />
 
           <input type="radio" name="radio-genre" id="wd-radio-fantasy" />
-          <label htmlFor="wd-radio-fantasy">Fantasy</label>
+          <label htmlFor="wd-radio-fantasy">harry potter and the half blood prince</label>
 
           {/* 2.11.6 Checkboxes */}
 
@@ -286,7 +286,7 @@ export default function Lab1() {
 
           <label htmlFor="wd-text-fields-email"> Email: </label>
           <input type="email"
-            placeholder="jdoe@somewhere.com"
+            placeholder="priyankp@gmail.com"
             id="wd-text-fields-email" /><br />
 
           <label htmlFor="wd-text-fields-salary-start"> Starting salary:
@@ -298,23 +298,23 @@ export default function Lab1() {
 
           <label htmlFor="wd-text-fields-rating"> Rating: </label>
           <input type="range" id="wd-text-fields-rating"
-            placeholder="Doe"
+            placeholder="Patel"
             max="5"
             value="4" /><br />
 
           <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
           <input type="date"
             id="wd-text-fields-dob"
-            value="2000-01-21" /><br />
+            value="2001-10-15" /><br />
 
           {/* 2.12 Anchor Tag */}
 
           <h4>Anchor tag</h4>
           Please &nbsp;
-          <a id="wd-lipsum" href="https://www.lipsum.com">click here</a>
-          &nbsp; to get dummy text<br />
+          <a id="wd-lipsum" href="https://www.apple.com">click here</a>
+          &nbsp; to visit Apple<br />
 
-          <a id="wd-github" href="https://www.github.com/aditya-narla/kanbas-react-web-app" target="_blank" rel="noreferrer">Repository</a>
+          <a id="wd-github" href="https://www.github.com/priyank1510/kanbas-react-web-app" target="_blank" rel="noreferrer">Repository</a>
         </form>
       </div>
     </div>

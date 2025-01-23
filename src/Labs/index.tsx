@@ -6,6 +6,9 @@ import Lab3 from "./Lab3";
 export default function Labs() {
   return (
     <div id="wd-labs">
+      Name: <b>Priyankkumar Patel</b> <br />
+      Section: <b>02</b> <br />
+      CRN: <b>35649</b> <br /> <br />
       <h1>Labs</h1>
       <TOC />
       <Routes>

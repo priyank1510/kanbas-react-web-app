@@ -8,6 +8,10 @@ export default function Kambaz() {
   return (
     <div id="wd-kambaz">
       <h1>Kambaz</h1>
+      Name: <b>Priyank Patel</b> <br />
+            Section: <b>01</b> <br />
+            CRN: <b>35649</b> <br /> <br />
+            <a id="wd-github" href="https://github.com/priyank1510/kanbas-react-web-app" target="_blank" rel="noreferrer">Github Repository</a><br /><br />
       <table>
         <tr>
           <td valign="top">
