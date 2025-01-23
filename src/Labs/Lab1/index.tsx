@@ -181,7 +181,7 @@ export default function Lab1() {
         <br />
         Loading a local image:
         <br />
-        <img id="wd-peter" src="src\Labs\Lab1\petergriffin.jpeg" height="200px" alt="Peter Griffin from quohog" />
+        <img id="wd-peter" src="/images/petergriffin.jpeg" height="200px" alt="Peter Griffin from quohog" />
       </div>
 
       {/* 2.11 Form Tags */}
