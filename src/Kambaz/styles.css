@@ -1,0 +1,75 @@
+@media (min-width: 768px) {
+    #wd-kambaz .wd-main-content-offset {
+        padding-left: 140px !important;
+    }
+}
+
+.list-group.wd > .list-group-item.active {
+    color: black;
+    background-color: white;
+    border-left: 3px solid black !important;
+  }
+  
+
+
+  
+.btn-secondary {
+  --bs-btn-color: #000 !important;
+  --bs-btn-bg: #c7cdd1 !important;
+  --bs-btn-border-color: #c7cdd1 !important;
+  --bs-btn-hover-color: #fff !important;
+}
+.bg-secondary {
+  --bs-secondary-rgb: 199, 205, 209;
+}
+.list-group-item {
+  --bs-list-group-border-color: gray; }
+.wd-lesson {
+  border-left: 3px solid green !important; }
+
+
+  .button-red {
+    background-color: red;
+    color: white;
+}
+
+
+.red-text {
+  color: red;
+}
+
+.red-underline{
+  text-decoration: dashed underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 2pxs;
+}
+
+
+.rounded-corners {
+  border-radius: 15px;
+}
+
+
+
+.vert-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.symbol-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.border-gray {
+  border: 1px solid gray;
+}
+
+
+
+.form-control {
+  white-space: pre-wrap;
+}
