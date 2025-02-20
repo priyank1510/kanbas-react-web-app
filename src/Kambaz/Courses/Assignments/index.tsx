@@ -30,7 +30,7 @@ export default function Assignments() {
 
                                 <h4 className="wd-assignment-group-title"> <BsGripVertical className="me-2 fs-3" />
                                 <span className="float-left text-success me-2">  <FaBook /></span>
-        {assignment.title}</h4>
+                                 {assignment.title}   <AssignmentControlButtons /></h4>
                                 <p className="wd-assignments-group-description">{assignment.description}</p>
                                 <div className="wd-assignment-details ms-5">
                                         <span className="wd-module-type text-danger">
