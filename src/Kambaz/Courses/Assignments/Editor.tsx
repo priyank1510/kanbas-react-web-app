@@ -3,7 +3,7 @@ import {  FaTimes } from "react-icons/fa";
 import {db} from "../../Database";
 import { useParams  } from "react-router-dom";
 export default function AssignmentEditor() {
-  const {cid,aid}=useParams(); 
+  const {aid}=useParams(); 
   const assignment =db.assignments.find((a:any)=>a._id===aid); 
   return (
         <Container>
