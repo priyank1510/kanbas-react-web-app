@@ -1,9 +1,9 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import {  FaTimes } from "react-icons/fa";
 import {db} from "../../Database";
-import { useParams  } from "react-router-dom";
+import { useParams,Link  } from "react-router-dom";
 export default function AssignmentEditor() {
-  const {aid}=useParams(); 
+  const {cid,aid}=useParams(); 
   const assignment =db.assignments.find((a:any)=>a._id===aid); 
   return (
         <Container>
@@ -120,8 +120,13 @@ export default function AssignmentEditor() {
 
   <Form.Group as={Row} className="mb-3">
   <div className=" d-flex justify-content-end mt-3">
-    <Button variant="light" className="me-2">Cancel</Button>
+
+    <Link to={`/Kambaz/Courses/${cid}/Assignments`}>
+      <Button variant="light" className="me-2">Cancel</Button>
+    </Link>
+    <Link to={`../Assignments`}>
     <Button variant="danger" >Save</Button>
+    </Link>
    </div>
    </Form.Group>
 
