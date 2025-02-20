@@ -5,8 +5,8 @@ import Signup from "./Signup"
 import AccountNavigation from "./Navigation";
 export default function Account() {
   return (
-    <div id="wd-account-screen">
-       <table width= "100%">
+    <div id="wd-account-screen" >
+       <table width= "100%" >
         <tr>
           <td valign="top">
             <AccountNavigation />
