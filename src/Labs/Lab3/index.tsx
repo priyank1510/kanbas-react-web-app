@@ -31,8 +31,11 @@ import VariableTypes from "./VariableTypes";
 import Add from "./Add"
 import Square from "./Square";
 import PathParameters from "./PathParameters";
+import { useSelector } from "react-redux";
+import { ListGroup } from "react-bootstrap";
 
 export default function Lab3() {
+  const { todos } = useSelector((state: any) => state.todosReducer);
   console.log("Hello World");
   return (
     <div>
@@ -136,7 +139,14 @@ export default function Lab3() {
       {/* 2.6.3 Encoding Path Parameters */}
       <PathParameters />
 
-      
+      <ListGroup>
+        {todos.map((todo: any) => (
+          <ListGroup.Item key={todo.id}>
+            {todo.title}
+          </ListGroup.Item>
+        ))}
+      </ListGroup>
+      <hr />
 
     </div>
   );
