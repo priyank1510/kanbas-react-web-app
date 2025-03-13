@@ -4,7 +4,7 @@ import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "./LessonControlButtons";
 import ModuleControlButtons from "./ModuleControlButtons";
 import { useParams } from "react-router";
-//import  {db} from "../../Database";
+
 import {  useState } from "react";
 import { addModule, editModule,
   updateModule, deleteModule }
@@ -13,29 +13,12 @@ import { useSelector, useDispatch }
 from "react-redux";
 export default function Modules() {
  const {cid}= useParams();
- //const _modules = db.modules.filter((m:any) => m.course === cid);
- //const [modules, setModules] = useState<any>(_modules); 
+
  const  [moduleName, setModuleName] = useState("");
  const { modules } = useSelector(
   (state: any) => state.modulesReducer);
 const dispatch = useDispatch();
-//  const addModule = () =>{
-//   setModules([...modules, { _id: new Date().getTime().toString(), name: moduleName, course: cid, lessons: [] }, ]);
-//   setModuleName("");
-//  }; 
-  
-//  const deleteModule = (moduleId: string) => {
-//   setModules(modules.filter((m:any) => m._id !== moduleId));
-// };
 
-// const editModule = (moduleId: string) => {
-//   setModules(modules.map((m :any) =>
-//             (m._id === moduleId ? { ...m, editing: true } : m)));
-// };
-// const updateModule = (module: any) => {
-//   setModules(modules.map((m:any) =>
-//             (m._id === module._id ? module : m)));
-// };
 
  return (
       <div>

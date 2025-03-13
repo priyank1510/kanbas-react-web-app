@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function Assignments() {
     const { cid } = useParams();
-    // const assignments = db.assignments;
+    
     const {assignments} = useSelector((state: any) => state.assignmentReducer);
     const dispatch = useDispatch();
 
