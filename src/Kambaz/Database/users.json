@@ -110,5 +110,19 @@
         "section": "S101",
         "lastActivity": "2020-11-11",
         "totalActivity": "21:32:43"
+    },
+    {
+        "_id": "1510",
+        "username": "priyank",
+        "password": "patel",
+        "firstName": "priyank",
+        "lastName": "patel",
+        "email": "riyan@patel.com",
+        "dob": "2001-05-29T00:00:00.000Z",
+        "role": "ADMIN",
+        "loginId": "001355561S",
+        "section": "S1510",
+        "lastActivity": "2023-10-01",
+        "totalActivity": "10:21:42"
     }
 ]

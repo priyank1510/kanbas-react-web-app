@@ -136,6 +136,8 @@ export default function Lab3() {
       {/* 2.6.3 Encoding Path Parameters */}
       <PathParameters />
 
+      
+
     </div>
   );
 }
