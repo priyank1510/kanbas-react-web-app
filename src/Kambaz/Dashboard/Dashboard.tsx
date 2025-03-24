@@ -85,7 +85,7 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse,
                                             className="wd-dashboard-course-link text-decoration-none text-dark"
                                             to={`/kambaz/Courses/${course._id}/Home`}
                                         >
-                                            <img src={`/images/15100.jpeg`} width="100%" height={160} alt="Course" />
+                                            <img src={`/images/1234.jpeg`} width="100%" height={160} alt="Course" />
                                             <div className="card-body">
                                                 <h5 className="wd-dashboard-course-title card-title overflow-y-hidden" style={{ maxHeight: 100 }}>
                                                     {course.name}

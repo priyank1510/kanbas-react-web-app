@@ -6,6 +6,7 @@ export default function AssignmentControlButtons(
     { assignmentId, onDelete }: { assignmentId: string, onDelete: (id: string) => void }
 ) {
     return (
+        
         <div className="float-end">
             <FaTrash onClick={() => onDelete(assignmentId)} className="me-2" />
             <GreenCheckmark />
