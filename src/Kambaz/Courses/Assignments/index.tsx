@@ -65,10 +65,11 @@ export default function Assignments() {
                                         href={`#/kambaz/Courses/${cid}/Assignments/${assignment._id}`}>
                                         {assignment.title}
                                     </a>
+                                    <ProtectedContent allowedRoles={["FACULTY"]}>
                                     <AssignmentControlButtons
                                         assignmentId={assignment._id}
                                         onDelete={handleDeleteAssignment}
-                                    />
+                                    /> </ProtectedContent>
                                     <div className="wd-assignment-details ms-5">
                                         <span className="wd-module-type text-danger">
                                             Multiple Modules
