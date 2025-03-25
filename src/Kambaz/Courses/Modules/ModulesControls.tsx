@@ -4,6 +4,7 @@ import { Button, Dropdown } from "react-bootstrap";
 import { MdDoNotDisturbAlt } from "react-icons/md";
 import { useState } from "react";
 import ModuleEditor from "./ModuleEditor";
+import ProtectedContent from "../../Account/ProtectedContent";
 
 export default function ModulesControls({setModuleName, moduleName,addModule }: {setModuleName: (name: string) => void; moduleName: string; addModule: () => void}) {
   const [show, setShow] = useState(false);
@@ -11,6 +12,8 @@ export default function ModulesControls({setModuleName, moduleName,addModule }: 
   const handleShow = () => setShow(true);
   return (
     <div id="wd-modules-controls" className="text-nowrap">
+      <div>
+        <ProtectedContent allowedRoles={["FACULTY"]}>
       <Button  onClick={handleShow} variant="danger" size="lg" className="me-1 float-end">
         <FaPlus className="position-relative me-2"
                 style={{ bottom: "1px" }} />
@@ -43,6 +46,9 @@ export default function ModulesControls({setModuleName, moduleName,addModule }: 
       
        </Dropdown.Menu>
      </Dropdown>
+     </ProtectedContent>
+     </div>
+     
      <Button variant="secondary" size="lg" className="me-2 float-end">
 
          Collapse All</Button>

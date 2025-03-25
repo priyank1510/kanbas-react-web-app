@@ -11,6 +11,7 @@ import { addModule, editModule,
 from "./reducer";
 import { useSelector, useDispatch }
 from "react-redux";
+import ProtectedContent from "../../Account/ProtectedContent";
 export default function Modules() {
  const {cid}= useParams();
 
@@ -31,7 +32,9 @@ const dispatch = useDispatch();
         <ListGroup className=" rounded -0">
         {modules.filter((module:any)=> module.course === cid).map((module:any) => (
           <ListGroup.Item className="wd-module p-0 mb-5 fs-5 border-gray">
-            <div className="wd-title p-3 ps-2 bg-secondary">  {!module.editing && module.name}
+            <div className="wd-title p-3 ps-2 bg-secondary">  
+  
+  {!module.editing && module.name}   <ProtectedContent allowedRoles={["FACULTY"]}>
   { module.editing && (<input value={module.name}
     className="form-control w-50 d-inline-block" 
     onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
@@ -40,8 +43,10 @@ const dispatch = useDispatch();
        dispatch( updateModule({ ...module, editing: false }));
       }
     }} />
-  )}<ModuleControlButtons moduleId={module._id}
-        deleteModule={(moduleId)=> dispatch(deleteModule(moduleId))}  editModule={(moduleId) => dispatch(editModule(moduleId))} /></div>
+  )}
+   
+  <ModuleControlButtons moduleId={module._id}
+        deleteModule={(moduleId)=> dispatch(deleteModule(moduleId))}  editModule={(moduleId) => dispatch(editModule(moduleId))} /> </ProtectedContent></div>
             {module.lessons && (
              <ListGroup className="wd-lessons rounded-0">
              {module.lessons.map((lesson:any) => (
