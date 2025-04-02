@@ -5,20 +5,34 @@ import { FaBook } from "react-icons/fa6";
 import { useParams } from "react-router";
 import ProtectedContent from "../../Account/ProtectedContent";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAssignment } from "./reducer";
 import { IoIosSearch } from "react-icons/io";
+import { deleteAssignment, setAssignments } from "./reducer";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import * as client from "./client";
 export default function Assignments() {
     const { cid } = useParams();
     
     const {assignments} = useSelector((state: any) => state.assignmentReducer);
     const dispatch = useDispatch();
+    const fetchAssignments = async () => {
+        const assignments = await client.findAssignmentsForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+    }
+
+    const removeAssignment = async (assignmentId: string) => {
+        await client.deleteAssignment(assignmentId);
+        dispatch(deleteAssignment(assignmentId));
+    };
+
+    useEffect(()=>{
+        fetchAssignments();
+      },[]);
 
     const handleDeleteAssignment = (assignmentId: string) => {
         const confirmed = window.confirm("Confirm that you want to delete this assignment");
         if (confirmed) {
-            dispatch(deleteAssignment(assignmentId));
+            removeAssignment(assignmentId);
         }
     };
 
@@ -55,9 +69,7 @@ export default function Assignments() {
                         </div>
                     </div>
                     <ul className="wd-assignment-list list-group rounded-0">
-                        {assignments
-                            .filter((assignment: any) => assignment.course === cid)
-                            .map((assignment: any) => (
+                        {assignments.map((assignment: any) => (
                                 <li key={assignment._id} className="wd-assignment-list-item list-group-item p-3 ps-1">
                                     <BsGripVertical className="me-2 fs-3" />
                                     <span className="float-left text-success me-2">  <FaBook /></span>
@@ -65,10 +77,11 @@ export default function Assignments() {
                                         href={`#/kambaz/Courses/${cid}/Assignments/${assignment._id}`}>
                                         {assignment.title}
                                     </a>
+                                    <ProtectedContent allowedRoles={["FACULTY"]}>
                                     <AssignmentControlButtons
                                         assignmentId={assignment._id}
                                         onDelete={handleDeleteAssignment}
-                                    />
+                                    /></ProtectedContent>
                                     <div className="wd-assignment-details ms-5">
                                         <span className="wd-module-type text-danger">
                                             Multiple Modules

@@ -2,11 +2,24 @@ import {  useNavigate } from "react-router-dom";
 import {useSelector,useDispatch} from "react-redux";
 import { setCurrentUser } from "./reducer";
 import { Button } from "react-bootstrap";
+import  { useState } from "react";
+import * as client from "./client";
 export default function Profile() {
     const {currentUser} = useSelector((state:any) => state.accountReducer);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const signout = () => { dispatch (setCurrentUser(null)); navigate("/Kambaz/Account/Signin");};
+    const [profile, setProfile] = useState<any>(currentUser);
+    const updateProfile = async () => {
+        const updatedProfile = await client.updateUser(profile);
+        dispatch(setCurrentUser(updatedProfile));
+      };
+    
+
+
+
+      
+    const signout = async() => {await client.signout(); dispatch (setCurrentUser(null)); navigate("/Kambaz/Account/Signin");};
 
     if(! currentUser){ return <div>Sign in to view profile</div>}
     return (
@@ -16,9 +29,9 @@ export default function Profile() {
             className="form-control mb-2" />
             <input id="wd-password" value={currentUser.password} placeholder="password"
             className="form-control mb-2" />
-            <input id="wd-firstname" value={currentUser.firstName} placeholder="First Name" 
+            <input id="wd-firstname" value={currentUser.firstName} onChange={(e) => setProfile({...profile,firstName: e.target.value})} placeholder="First Name" 
             className="form-control mb-2" />
-            <input id="wd-lastname" value={currentUser.lastName} placeholder="Last Name"
+            <input id="wd-lastname" value={currentUser.lastName} onChange={(e) => setProfile({...profile,lastName: e.target.value})} placeholder="Last Name"
             className="form-control mb-2" />
             <input id="wd-dob" value="2001-10-15" type="date"
             className="form-control mb-2" />
@@ -30,6 +43,7 @@ export default function Profile() {
                 <option value="FACULTY">Faculty</option>
                 <option value="STUDENT">Student</option>
             </select>
+            <button onClick={updateProfile} className="btn btn-primary w-100 mb-2"> Update </button>
             <Button id="wd-signout" onClick={signout} variant="danger">Signout</Button>
         </div>
     );

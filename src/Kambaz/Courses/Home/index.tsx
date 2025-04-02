@@ -1,4 +1,5 @@
 import Modules from "../Modules";
+import ProtectedContent from "../../Account/ProtectedContent";
 import CourseStatus from "./Status";
 export default function Home() {
     return (
@@ -6,9 +7,11 @@ export default function Home() {
             <div className="flex-fill">
                 <Modules />
             </div>
+            <ProtectedContent allowedRoles={["FACULTY"]}>
             <div className="d-none d-md-block">
                 <CourseStatus />
             </div>
+            </ProtectedContent>
         </div>
     );
 }

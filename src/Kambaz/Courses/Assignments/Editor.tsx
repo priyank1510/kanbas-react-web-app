@@ -5,12 +5,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateAssignment, addAssignment } from "./reducer";
 import { useState, useEffect } from "react";
 import ProtectedContent from "../../Account/ProtectedContent";
+import * as client from "./client";
 
 export default function AssignmentEditor() {
-  const { cid, aid } = useParams();
+  const {  aid, cid } = useParams();
   const navigate = useNavigate();
   const assignments = useSelector((state: any) => state.assignmentReducer.assignments);
   const dispatch = useDispatch();
+
+
+
+  const createAssignment = async (assignment: any) => {
+    const newAssignment = await client.createAssignment(cid as string, assignment);
+    dispatch(addAssignment(newAssignment));
+};
+
+const saveAssignment = async (assignment: any) => {
+    await client.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+};
+
+
+
 
   const assignment = assignments ? assignments.find((assignment: any) => assignment._id === aid) : null;
 
@@ -31,6 +47,43 @@ export default function AssignmentEditor() {
     Assignmentgroup: assignment?.Assignmentgroup || "ASSIGNMENTS",
   });
 
+
+
+  const handleChange = (e: any) => {
+    const { id, value } = e.target;
+    setFormState({
+      ...formState,
+      [id]: value,
+    });
+  };
+
+  const handleSave = () => {
+    if (assignment) {
+      const updateAssignment = {
+        ...assignment,
+        ...formState,
+      }
+      saveAssignment(updateAssignment);
+      alert("Saved!");
+    } else {
+      const newAssignment = {
+        ...formState,
+        course: cid,
+        _id: new Date().getTime().toString(),
+      };
+      createAssignment(newAssignment);
+      alert("Added");
+    }
+    navigate(`/kambaz/Courses/${cid}/Assignments`);
+  };
+
+  const handleCancel = () => {
+    if (window.confirm("Are you sure?")) {
+      navigate(`/kambaz/Courses/${cid}/Assignments`);
+    }
+  };
+
+
   useEffect(() => {
     if (assignment) {
       setFormState({
@@ -49,35 +102,7 @@ export default function AssignmentEditor() {
     }
   }, [assignment]);
 
-  const handleChange = (e: any) => {
-    const { id, value } = e.target;
-    setFormState({
-      ...formState,
-      [id]: value,
-    });
-  };
 
-  const handleSave = () => {
-    if (assignment) {
-      dispatch(updateAssignment({ ...assignment, ...formState }));
-      alert("Saved!");
-    } else {
-      const newAssignment = {
-        ...formState,
-        course: cid,
-        _id: new Date().getTime().toString(),
-      };
-      dispatch(addAssignment(newAssignment));
-      alert("Added");
-    }
-    navigate(`/kambaz/Courses/${cid}/Assignments`);
-  };
-
-  const handleCancel = () => {
-    if (window.confirm("Are you sure?")) {
-      navigate(`/kambaz/Courses/${cid}/Assignments`);
-    }
-  };
 
   return (
     <Container>
