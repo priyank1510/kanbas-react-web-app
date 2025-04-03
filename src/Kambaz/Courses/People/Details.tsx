@@ -29,7 +29,7 @@ export default function PeopleDetails(
        navigate(`/Kambaz/Account/Users`);
      };
 
-  const { uid, cid } = useParams();
+  const { uid } = useParams();
   const [user, setUser] = useState<any>({});
   const fetchUser = async () => {
     if (!uid) return;
