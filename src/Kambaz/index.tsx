@@ -6,7 +6,8 @@ import KambazNavigation from "./Navigation";
 import Courses from "./Courses";
 import { Route, Routes, Navigate } from "react-router";
 import { useEffect, useState } from "react";
-
+import { Provider } from "react-redux";
+import store  from "./store";
 import * as userClient from "./Account/client";
 import ProtectedRoute from "./Account/ProtectedRoute";
 import Session from "./Account/Session";
@@ -25,7 +26,7 @@ export default function Kambaz() {
      
          const fetchCourses = async () => {
       try {
-        const courses = await userClient.findMyCourses();
+        const courses = await userClient.fetchAllCourses();
         setCourses(courses);
       } catch (error) {
         console.error(error);
@@ -58,6 +59,7 @@ export default function Kambaz() {
       };
    
     return ( 
+      <Provider store={store}>
       <Session>
         <div id="wd-kambaz">
             <KambazNavigation />
@@ -75,5 +77,6 @@ export default function Kambaz() {
             </div>
         </div>
         </Session>
+        </Provider>
     );
 }

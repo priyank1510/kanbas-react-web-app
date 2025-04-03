@@ -36,6 +36,9 @@ export default function Assignments() {
         }
     };
 
+
+    
+
     return (
         <div>
             <ProtectedContent allowedRoles={["FACULTY"]}>
@@ -48,7 +51,7 @@ export default function Assignments() {
                         <button className="wd-add-assignment-group btn btn-lg btn-secondary me-1 rounded-2">
                             <BsPlusLg /> Group
                         </button>
-                        <Link to={`/kambaz/Courses/${cid}/New`}
+                        <Link to={`/kambaz/Courses/${cid}/Assignments/New`}
                             className="wd-add-assignment btn btn-lg btn-danger text-white rounded-2">
                             <BsPlusLg /> Assignment
                         </Link>

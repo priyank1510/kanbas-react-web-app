@@ -3,7 +3,7 @@ import { FaTimes } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAssignment, addAssignment } from "./reducer";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ProtectedContent from "../../Account/ProtectedContent";
 import * as client from "./client";
 
@@ -84,23 +84,7 @@ const saveAssignment = async (assignment: any) => {
   };
 
 
-  useEffect(() => {
-    if (assignment) {
-      setFormState({
-        title: assignment.title,
-        description: assignment.description,
-        points: assignment.points,
-        due_date: assignment.due_date,
-        available_from_date: assignment.available_from_date,
-        available_until_date: assignment.available_until_date,
-        gradeType: assignment.gradeType,
-        submissiontype: assignment.submissionType,
-        entry: assignment.entry,
-        display_grade: assignment.display_grade,
-        Assignmentgroup: assignment.Assignmentgroup,
-      });
-    }
-  }, [assignment]);
+
 
 
 

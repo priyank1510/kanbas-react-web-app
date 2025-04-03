@@ -47,7 +47,21 @@ export default function TOC() {
         <a id="wd-github"
           href="https://github.com/priyank1510/kanbas-react-web-app"
           target="_blank" rel="noreferrer" className="nav-link">
-          My GitHub
+          My GitHub- React Web App
+        </a>
+      </li>
+      <li>
+        <a id="wd-github-node"
+          href="https://github.com/priyank1510/kambaz-node-server-app-cs5610-sp25"
+          target="_blank" rel="noreferrer" className="nav-link">
+          GitHub - Node
+        </a>
+      </li>
+      <li>
+        <a id="wd-render-url"
+          href=""
+          target="_blank" rel="noreferrer" className="nav-link">
+          Render
         </a>
       </li>
     </ul>

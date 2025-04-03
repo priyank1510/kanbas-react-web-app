@@ -11,9 +11,11 @@ export default function Signin() {
   const dispatch = useDispatch();
     const navigate = useNavigate();
     const signin = async () => {
-      const user =  await client.signin(credentials);
+      
   
-    try {if(!user) return alert("invalid credentials");
+    try {
+      const user =  await client.signin(credentials);
+      if(!user) return alert("invalid credentials");
     dispatch(setCurrentUser(user));
     navigate("/Kambaz/Dashboard");}
     catch (err:any) {
