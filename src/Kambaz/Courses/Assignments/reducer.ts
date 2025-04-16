@@ -21,6 +21,10 @@ const assignmentsSlice = createSlice({
                 available_until_date: assignment.available_until_date,
                 gradeType: assignment.gradeType,
                 submissionType: assignment.submissionType,
+                entry: assignment.entry,
+                display_grade:assignment.display_grade,
+                Assignmentgroup:assignment.Assignmentgroup ,
+ 
             };
             state.assignments = [...state.assignments, newAssignment] as any;
         },

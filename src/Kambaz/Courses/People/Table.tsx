@@ -1,16 +1,30 @@
 import { FaUserCircle } from "react-icons/fa";
-
+import { findUsersForCourse } from "../../Courses/client";
 import { Table } from "react-bootstrap";
-
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import ProtectedContent from "../../Account/ProtectedContent";
 
 
 export default function PeopleTable({users = [] }: { users?: any[] }) {
-   
+    
+    const [usersList, setUsers] = useState<any[]>([]);
+    // const { courseId } = useParams<{ courseId: string }>();
+    const { cid: courseId } = useParams();
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            if (courseId) {
+                const fetchedUsers = await findUsersForCourse(courseId);
+                setUsers(fetchedUsers);
+            }
+        };
+        fetchUsers();
+    }, [courseId]);
 
     return (
         <div id="wd-people-table">
-           
+      
             <Table  striped bordered hover responsive>
                 <thead>
                     <tr>
@@ -42,5 +56,6 @@ export default function PeopleTable({users = [] }: { users?: any[] }) {
                         ))}
                 </tbody>
             </Table>
+            
         </div>);
 }

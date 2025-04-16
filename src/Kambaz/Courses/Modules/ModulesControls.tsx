@@ -54,5 +54,7 @@ export default function ModulesControls({setModuleName, moduleName,addModule }: 
          <Button variant="secondary" size="lg" className="me-2 float-end">
         
          View Progress</Button>
+
+         
   </div>
 );}
