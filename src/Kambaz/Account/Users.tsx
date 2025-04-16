@@ -7,6 +7,8 @@ import { FaPlus } from "react-icons/fa";
 
 export default function Users() {
   const [users, setUsers] = useState<any[]>([]);
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
   const { uid } = useParams();
 
   const createUser = async () => {
@@ -26,6 +28,26 @@ export default function Users() {
     setUsers([...users, user]);
   };
 
+  const filterUsersByRole = async (role: string) => {
+    setRole(role);
+    if (role) {
+      const users = await client.findUsersByRole(role);
+      setUsers(users);
+    } else {
+      fetchUsers();
+    }
+  };
+
+  const filterUsersByName = async (name: string) => {
+    setName(name);
+    if (name) {
+      const users = await client.findUsersByPartialName(name);
+      setUsers(users);
+    } else {
+      fetchUsers();
+    }
+  };
+
   const fetchUsers = async () => {
     const users = await client.findAllUsers();
     setUsers(users);
@@ -38,9 +60,34 @@ export default function Users() {
   return (
     <div>
       <PeopleDetails />
-      <button onClick={createUser} className="btn btn-primary">
-        <FaPlus /> Add User
-      </button>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h3>Users</h3>
+        <button onClick={createUser} className="btn btn-primary">
+          <FaPlus /> Add User
+        </button>
+      </div>
+      
+      <div className="d-flex gap-2 mb-3">
+        <input 
+          type="text" 
+          placeholder="Search people" 
+          value={name}
+          onChange={(e) => filterUsersByName(e.target.value)}
+          className="form-control w-25"
+        />
+        <select 
+          value={role} 
+          onChange={(e) => filterUsersByRole(e.target.value)}
+          className="form-select w-25"
+        >
+          <option value="">All Roles</option>
+          <option value="STUDENT">Students</option>
+          <option value="TA">Assistants</option>
+          <option value="FACULTY">Faculty</option>
+          <option value="ADMIN">Administrators</option>
+        </select>
+      </div>
+
       <PeopleTable users={users} />
     </div>
   );
