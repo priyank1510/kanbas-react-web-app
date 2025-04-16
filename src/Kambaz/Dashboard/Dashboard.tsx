@@ -1,6 +1,5 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import ProtectedContent from "../Account/ProtectedContent";
 
 export default function Dashboard({ courses, course, setCourse, addNewCourse,
@@ -10,8 +9,6 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse,
         updateCourse: () => void; enrolling: boolean; setEnrolling: (enrolling: boolean) => void;
         updateEnrollment: (courseId: string, enrolled: boolean) => void
     }) {
-    const { currentUser } = useSelector((state: any) => state.accountReducer);
-
     return (
         <div id="wd-dashboard">
             <h1 id="wd-dashboard-title">
