@@ -1,9 +1,9 @@
 import  { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { Link} from "react-router-dom";
+import { useSelector } from "react-redux";
 import ProtectedContent from "../Account/ProtectedContent";
-// import { enrollCourse, unenrollCourse } from "./actions";
-import { enrollCourse, unenrollCourse, getUserEnrollments } from './client';
+
+import {  getUserEnrollments } from './client';
 
 export default function Dashboard({ courses, course, setCourse, addNewCourse,
     deleteCourse, updateCourse, enrolling, setEnrolling, updateEnrollment }: {
@@ -15,8 +15,8 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse,
     const [showAllCourses, setShowAllCourses] = useState(false);
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     // const enrollments = useSelector((state: any) => state.enrollmentReducer.enrollments);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    //const dispatch = useDispatch();
+    //const navigate = useNavigate();
 
     // const toggleEnrollment = (courseId: string) => {
     //     if (isEnrolled(courseId)) {
