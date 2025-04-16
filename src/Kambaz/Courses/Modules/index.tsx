@@ -34,8 +34,16 @@ const addModuleHandler = async () => {
 };
 
 const deleteModuleHandler = async (moduleId: string) => {
-  await modulesClient.deleteModule(moduleId);
-  dispatch(deleteModule(moduleId));
+  try {
+    // First try to delete from the backend
+    await modulesClient.deleteModule(moduleId);
+    // If successful, update the Redux store
+    dispatch(deleteModule(moduleId));
+  } catch (error) {
+    console.error("Error deleting module:", error);
+    // If there's an error, refresh the modules list to ensure sync with backend
+    fetchModulesForCourse();
+  }
 };
 
 
@@ -43,8 +51,12 @@ const deleteModuleHandler = async (moduleId: string) => {
 
 
 const fetchModulesForCourse = async () => {
-  const modules = await courseClient.findModulesForCourse(cid!);
-  dispatch(setModules(modules));
+  try {
+    const modules = await courseClient.findModulesForCourse(cid!);
+    dispatch(setModules(modules));
+  } catch (error) {
+    console.error("Error fetching modules:", error);
+  }
 };
 useEffect(() => {
   fetchModulesForCourse();
