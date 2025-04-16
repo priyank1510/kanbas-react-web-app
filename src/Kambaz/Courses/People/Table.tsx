@@ -1,12 +1,10 @@
 import { FaUserCircle } from "react-icons/fa";
-
+import { findUsersForCourse } from "../../Courses/client";
 import { Table } from "react-bootstrap";
-
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function PeopleTable({ users = [] }: { users?: any[] }) {
-    const { cid: courseId } = useParams();
-
     return (
         <div id="wd-people-table">
             <Table striped bordered hover responsive>
