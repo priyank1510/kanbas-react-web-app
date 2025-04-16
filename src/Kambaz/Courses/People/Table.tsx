@@ -3,29 +3,13 @@ import { findUsersForCourse } from "../../Courses/client";
 import { Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import ProtectedContent from "../../Account/ProtectedContent";
 
-
-export default function PeopleTable({users = [] }: { users?: any[] }) {
-    
-    const [usersList, setUsers] = useState<any[]>([]);
-    // const { courseId } = useParams<{ courseId: string }>();
+export default function PeopleTable({ users = [] }: { users?: any[] }) {
     const { cid: courseId } = useParams();
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            if (courseId) {
-                const fetchedUsers = await findUsersForCourse(courseId);
-                setUsers(fetchedUsers);
-            }
-        };
-        fetchUsers();
-    }, [courseId]);
 
     return (
         <div id="wd-people-table">
-      
-            <Table  striped bordered hover responsive>
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -38,24 +22,25 @@ export default function PeopleTable({users = [] }: { users?: any[] }) {
                 </thead>
                 <tbody>
                     {users.map((user: any) => (
+                        user && user._id && (
                             <tr key={user._id}>
                                 <td className="wd-full-name text-nowrap">
-                                  <Link to ={`/Kambaz/Account/Users/${user._id}`}> 
-                                    <FaUserCircle className="me-2 fs-1 text-secondary" />
-                                    <span className="wd-first-name">{user.firstName}</span>{" "}
-                                    <span className="wd-last-name">{user.lastName}</span>
-                                </Link>
-                                
+                                    <Link to={`/Kambaz/Account/Users/${user._id}`}>
+                                        <FaUserCircle className="me-2 fs-1 text-secondary" />
+                                        <span className="wd-first-name">{user.firstName || ''}</span>{" "}
+                                        <span className="wd-last-name">{user.lastName || ''}</span>
+                                    </Link>
                                 </td>
-                                <td className="wd-login-id">{user.loginId}</td>
-                                <td className="wd-section">{user.section}</td>
-                                <td className="wd-role">{user.role}</td>
-                                <td className="wd-last-activity">{user.lastActivity}</td>
-                                <td className="wd-total-activity">{user.totalActivity}</td>
+                                <td className="wd-login-id">{user.loginId || ''}</td>
+                                <td className="wd-section">{user.section || ''}</td>
+                                <td className="wd-role">{user.role || ''}</td>
+                                <td className="wd-last-activity">{user.lastActivity || ''}</td>
+                                <td className="wd-total-activity">{user.totalActivity || ''}</td>
                             </tr>
-                        ))}
+                        )
+                    ))}
                 </tbody>
             </Table>
-            
-        </div>);
+        </div>
+    );
 }
