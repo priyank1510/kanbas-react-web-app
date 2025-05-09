@@ -56,3 +56,50 @@ Supports 100+ concurrent users and is scalable for classroom-level deployment.
 ```bash
 git clone https://github.com/priyank1510/kanbas-react-web-app.git
 cd kanbas-react-web-app
+
+
+
+## 📦 Installation Instructions
+
+Follow these steps to install dependencies for both the backend and frontend of the project.
+
+---
+
+### ✅ Install Backend Dependencies
+
+```bash
+cd backend
+npm install
+
+
+
+## 🚀 Project Setup Instructions
+
+Follow the steps below to set up environment variables and run the application locally.
+
+---
+
+## 🔐 Set Up Environment Variables
+
+Create a `.env` file in the `backend` directory and add the following variables:
+
+```env
+MONGO_URI=<your-mongodb-uri>
+JWT_SECRET=<your-jwt-secret>
+
+
+
+
+## Run the application:
+
+## Run backend server
+   cd backend
+   npm start
+## Run frontend server
+   cd ../frontend
+   npm start
+
+
+
+Access the application: Open your browser and navigate to http://localhost:3000 to access the frontend.
+
