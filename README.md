@@ -2,10 +2,8 @@
 
 Welcome to the **Kanbas Tool** repository! This is a robust Learning Management System (LMS) built using the powerful **MERN** stack – MongoDB, Express.js, React.js, and Node.js.
 
-## 🔗 Live Demo
-- **Frontend**: [quiz--dreamy-beijinho-213b4e.netlify.app](https://quiz--dreamy-beijinho-213b4e.netlify.app/)
 
----
+
 
 ## 📑 Table of Contents
 
@@ -56,5 +54,5 @@ Supports 100+ concurrent users and is scalable for classroom-level deployment.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aditya-narla/kanbas-react-web-app.git
+git clone https://github.com/priyank1510/kanbas-react-web-app.git
 cd kanbas-react-web-app
